@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('dist/img/ic_'.$this->uri->segment(1).'.png');?>" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url('dist/img/ic_admin.png');?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo $this->common->getAdminData()->nama;?></p>
@@ -27,58 +27,31 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         
-        <li class="<?php echo $this->uri->segment(2) == 'home' ? 'active': '' ?>">
-          <a href="<?php echo site_url('admin/home') ?>">
+        <li class="<?php echo $this->uri->segment(1) == 'home' ? 'active': '' ?>">
+          <a href="<?php echo site_url('home') ?>">
             <i class="fa fa-home"></i> <span>Beranda</span>
           </a>
         </li>
-        <li class="<?php echo 
-        $this->uri->segment(2) == 'jurusan' ||
-        $this->uri->segment(2) == 'prodi' ||
-        $this->uri->segment(2) == 'kelas'
-        ? 'active': '' ?> treeview">
-          <a href="#">
-            <i class="fa fa-database"></i>
-            <span>Master Data</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li class="header">MASTER DATA</li>
+        <li class="<?php echo $this->uri->segment(1) == 'kelas' ? 'active': '' ?>">
+          <a href="<?php echo site_url('kelas') ?>">
+            <i class="fa fa-circle-o"></i> <span>Kelas</span>
           </a>
-          <ul class="treeview-menu">
-            <li class="<?php echo $this->uri->segment(2) == 'jurusan' ? 'active': '' ?>"><a href="<?php echo site_url('admin/jurusan') ?>"><i class="fa fa-circle-o"></i> Jurusan</a></li>
-            <li class="<?php echo $this->uri->segment(2) == 'prodi' ? 'active': '' ?>"><a href="<?php echo site_url('admin/prodi') ?>"><i class="fa fa-circle-o"></i> Prodi</a></li>
-            <li class="<?php echo $this->uri->segment(2) == 'kelas' ? 'active': '' ?>"><a href="<?php echo site_url('admin/kelas') ?>"><i class="fa fa-circle-o"></i> Kelas</a></li>
-          </ul>
         </li>
         <li class="header">AKUN</li>
-        <li class="<?php echo $this->uri->segment(2) == 'admin' ? 'active': '' ?>">
-          <a href="<?php echo site_url('admin/admin') ?>">
-            <i class="fa fa-lock"></i> <span>Admin</span>
+        <li class="<?php echo $this->uri->segment(1) == 'guru' ? 'active': '' ?>">
+          <a href="<?php echo site_url('guru') ?>">
+            <i class="fa fa-users"></i> <span>Guru</span>
           </a>
         </li>
-        <li class="<?php echo $this->uri->segment(2) == 'pimpinan' ? 'active': '' ?>">
-          <a href="<?php echo site_url('admin/pimpinan') ?>">
-            <i class="ion ion-person"></i> <span>Pimpinan</span>
+        <li class="<?php echo $this->uri->segment(1) == 'orangtua' ? 'active': '' ?>">
+          <a href="<?php echo site_url('orangtua') ?>">
+            <i class="fa fa-user"></i> <span>Orang Tua</span>
           </a>
         </li>
-        <li class="<?php echo $this->uri->segment(2) == 'kajur' ? 'active': '' ?>">
-          <a href="<?php echo site_url('admin/kajur') ?>">
-            <i class="ion ion-person"></i> <span>Kajur</span>
-          </a>
-        </li>
-        <li class="<?php echo $this->uri->segment(2) == 'kaprodi' ? 'active': '' ?>">
-          <a href="<?php echo site_url('admin/kaprodi') ?>">
-            <i class="fa fa-graduation-cap"></i> <span>KA. Prodi</span>
-          </a>
-        </li>
-        <li class="<?php echo $this->uri->segment(2) == 'mahasiswa' ? 'active': '' ?>">
-          <a href="<?php echo site_url('admin/mahasiswa') ?>">
-            <i class="fa fa-users"></i> <span>Mahasiswa</span>
-          </a>
-        </li>
-        <li class="<?php echo $this->uri->segment(2) == 'dosen' ? 'active': '' ?>">
-          <a href="<?php echo site_url('admin/dosen') ?>">
-            <i class="fa fa-user"></i> <span>Dosen Wali</span>
+        <li class="<?php echo $this->uri->segment(1) == 'siswa' ? 'active': '' ?>">
+          <a href="<?php echo site_url('siswa') ?>">
+            <i class="fa fa-graduation-cap"></i> <span>Siswa</span>
           </a>
         </li>
       </ul>

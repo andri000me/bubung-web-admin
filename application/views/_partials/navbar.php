@@ -20,13 +20,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('dist/img/ic_'.$this->uri->segment(1).'.png');?>" class="user-image" alt="User Image">
+              <img src="<?php echo base_url('dist/img/ic_admin.png');?>" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $this->common->getAdminData()->nama;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url('dist/img/ic_'.$this->uri->segment(1).'.png');?>" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url('dist/img/ic_admin.png');?>" class="img-circle" alt="User Image">
 
                 <p>
                 <?php echo $this->common->getAdminData()->nama;?>
@@ -36,10 +36,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?php echo site_url('admin/profile') ?>" class="btn btn-default btn-flat">Profile</a>
+                  <a href="<?php echo site_url('profile') ?>" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo site_url('admin/login/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo site_url('login/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>

@@ -5,7 +5,7 @@ class Common
     public function getAdminData()
     {
       $this->CI =& get_instance();
-      $this->CI->load->model('admin/admin_model');
+      $this->CI->load->model('admin_model');
       $admin = $this->CI->admin_model;
       $id = $this->CI->session->userdata('admin_id');
       $data = $admin->getById($id);
@@ -13,7 +13,7 @@ class Common
         return $data;
       }
       else {
-          redirect(site_url('admin/login/logout'));
+          redirect(site_url('login/logout'));
       }
     }
 
