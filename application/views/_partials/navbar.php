@@ -5,7 +5,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">App</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b><?php echo SITE_NAME ?></span>
+      <span class="logo-lg"><b><?php echo SITE_NAME ?></b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
