@@ -38,6 +38,11 @@
             <i class="fa fa-circle-o"></i> <span>Kelas</span>
           </a>
         </li>
+        <li class="<?php echo $this->uri->segment(1) == 'mapel' ? 'active': '' ?>">
+          <a href="<?php echo site_url('mapel') ?>">
+            <i class="fa fa-database"></i> <span>Mata Pelajaran</span>
+          </a>
+        </li>
         <li class="header">AKUN</li>
         <li class="<?php echo $this->uri->segment(1) == 'guru' ? 'active': '' ?>">
           <a href="<?php echo site_url('guru') ?>">
