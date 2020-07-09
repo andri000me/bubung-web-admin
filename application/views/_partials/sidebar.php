@@ -59,6 +59,11 @@
             <i class="fa fa-graduation-cap"></i> <span>Siswa</span>
           </a>
         </li>
+        <li class="<?php echo $this->uri->segment(1) == 'mapelkelas' ? 'active': '' ?>">
+          <a href="<?php echo site_url('mapelkelas') ?>">
+            <i class="fa fa-database"></i> <span>Mata Pelajaran Kelas</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
