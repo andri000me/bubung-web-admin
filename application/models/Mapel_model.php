@@ -11,7 +11,7 @@ class Mapel_model extends CI_Model
     {
         return [
             ['field' => 'mapel_nama',
-            'rules' => 'required'],
+            'rules' => 'required']
         ];
     }
 
