@@ -39,6 +39,7 @@
                   <th>Nama Siswa</th>
                   <th>Kelas</th>
                   <th>Nama Orang Tua</th>
+                  <th>HP Orang Tua</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -55,6 +56,11 @@
                   <td><?php foreach ($orangtuas as $key) {
                     if($siswa->orangtua_id == $key->orangtua_id){
                       echo $key->nama;
+                    }
+                  } ?></td>
+                  <td><?php foreach ($orangtuas as $key) {
+                    if($siswa->orangtua_id == $key->orangtua_id){
+                      echo $key->no_hp;
                     }
                   } ?></td>
                   <td>
