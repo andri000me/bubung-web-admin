@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2020 at 03:41 PM
+-- Generation Time: Jul 09, 2020 at 04:01 PM
 -- Server version: 8.0.13
 -- PHP Version: 7.3.11
 
@@ -102,11 +102,53 @@ INSERT INTO `kelas` (`kelas_id`, `kelas_nama`) VALUES
 
 CREATE TABLE `mapel` (
   `mapel_id` int(11) NOT NULL,
-  `jam` varchar(20) NOT NULL,
-  `mapel_nama` varchar(100) NOT NULL,
-  `hari` varchar(20) NOT NULL,
+  `mapel_nama` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mapel`
+--
+
+INSERT INTO `mapel` (`mapel_id`, `mapel_nama`) VALUES
+(1, 'Pendidikan Jasmani'),
+(2, 'Bahasa Indonesia'),
+(3, 'Matematika'),
+(4, 'IPA'),
+(5, 'IPS'),
+(6, 'Pendidikan Agama'),
+(7, '- Istirahat -');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mapel_kelas`
+--
+
+CREATE TABLE `mapel_kelas` (
+  `mapel_kelas_id` int(11) NOT NULL,
+  `mapel_id` int(11) NOT NULL,
+  `jam` varchar(110) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `hari` varchar(110) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `kelas_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mapel_kelas`
+--
+
+INSERT INTO `mapel_kelas` (`mapel_kelas_id`, `mapel_id`, `jam`, `hari`, `kelas_id`) VALUES
+(1, 2, '08:00 - 09:30', 'Senin', 2),
+(2, 4, '10:30 - 12:00', 'Senin', 2),
+(3, 7, '12:00 - 13:00', 'Senin', 2),
+(4, 3, '13:00 - 14:00', 'Senin', 2),
+(5, 1, '08:00 - 09:30', 'Selasa', 2),
+(6, 4, '10:30 - 12:00', 'Selasa', 2),
+(7, 7, '12:00 - 13:00', 'Selasa', 2),
+(8, 6, '13:00 - 14:00', 'Selasa', 2),
+(9, 3, '08:00 - 09:30', 'Rabu', 2),
+(10, 6, '10:30 - 12:00', 'Rabu', 2),
+(11, 7, '12:00 - 13:00', 'Rabu', 2),
+(12, 5, '13:00 - 14:00', 'Rabu', 2);
 
 -- --------------------------------------------------------
 
@@ -142,7 +184,8 @@ CREATE TABLE `orangtua` (
 --
 
 INSERT INTO `orangtua` (`orangtua_id`, `nama`, `email`, `password`, `no_hp`, `alamat`) VALUES
-(1, 'Heri Maulana', 'herimaulana85@gmail.com', 'heri123', '+6282288327124', 'Bengkalis, Riau');
+(1, 'Heri Maulana', 'herimaulana85@gmail.com', 'heri123', '+6282288327124', 'Bengkalis, Riau'),
+(2, 'Budiman', 'budiman@gmail.com', 'budiman123', '+6282233445566', 'Bengkalis, Riau');
 
 -- --------------------------------------------------------
 
@@ -174,7 +217,8 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`siswa_id`, `nama`, `kelas_id`, `orangtua_id`) VALUES
-(1, 'Pramudia', 2, 1);
+(1, 'Pramudia', 2, 1),
+(2, 'Sutrisno', 2, 2);
 
 --
 -- Indexes for dumped tables
@@ -203,6 +247,12 @@ ALTER TABLE `kelas`
 --
 ALTER TABLE `mapel`
   ADD PRIMARY KEY (`mapel_id`);
+
+--
+-- Indexes for table `mapel_kelas`
+--
+ALTER TABLE `mapel_kelas`
+  ADD PRIMARY KEY (`mapel_kelas_id`);
 
 --
 -- Indexes for table `nilai`
@@ -254,7 +304,13 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `mapel`
 --
 ALTER TABLE `mapel`
-  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `mapel_kelas`
+--
+ALTER TABLE `mapel_kelas`
+  MODIFY `mapel_kelas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `nilai`
@@ -266,7 +322,7 @@ ALTER TABLE `nilai`
 -- AUTO_INCREMENT for table `orangtua`
 --
 ALTER TABLE `orangtua`
-  MODIFY `orangtua_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `orangtua_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengumuman`
@@ -278,7 +334,7 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
