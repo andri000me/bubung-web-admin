@@ -87,7 +87,7 @@
                             </div>
                             <div class="form-group">
                               <label>Alamat</label>
-                              <textarea type="text" class="form-control" placeholder="Alamat" name="alamat"><?php echo $orangtua->password ?></textarea>
+                              <textarea type="text" class="form-control" placeholder="Alamat" name="alamat"><?php echo $orangtua->alamat ?></textarea>
                             </div>
                           </div>
                           <div class="modal-footer">
