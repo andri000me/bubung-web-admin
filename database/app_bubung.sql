@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2020 at 04:01 PM
+-- Generation Time: Jul 10, 2020 at 03:25 PM
 -- Server version: 8.0.13
 -- PHP Version: 7.3.11
 
@@ -196,8 +196,20 @@ INSERT INTO `orangtua` (`orangtua_id`, `nama`, `email`, `password`, `no_hp`, `al
 CREATE TABLE `pengumuman` (
   `pengumuman_id` int(11) NOT NULL,
   `judul` varchar(150) NOT NULL,
-  `deskripsi` varchar(200) NOT NULL
+  `deskripsi` varchar(200) NOT NULL,
+  `tanggal` varchar(50) NOT NULL,
+  `waktu` varchar(50) NOT NULL,
+  `kelas_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengumuman`
+--
+
+INSERT INTO `pengumuman` (`pengumuman_id`, `judul`, `deskripsi`, `tanggal`, `waktu`, `kelas_id`) VALUES
+(16, 'Pembagian Raport Siswa', 'Pembagian raport dimulai tangal 10-07-2020 trims.', '2020-07-10', '14:11:08', 2),
+(18, 'Test lagi', 'Isi test ya', '2020-07-10', '19:39:05', 2),
+(19, 'Oi', 'Haa?', '2020-07-10', '22:23:09', 2);
 
 -- --------------------------------------------------------
 
@@ -328,7 +340,7 @@ ALTER TABLE `orangtua`
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `siswa`
