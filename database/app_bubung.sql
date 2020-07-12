@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2020 at 03:25 PM
+-- Generation Time: Jul 12, 2020 at 04:16 PM
 -- Server version: 8.0.13
 -- PHP Version: 7.3.11
 
@@ -21,6 +21,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `app_bubung`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `absensi`
+--
+
+CREATE TABLE `absensi` (
+  `absensi_id` int(11) NOT NULL,
+  `tanggal` int(11) NOT NULL,
+  `bulan` int(11) NOT NULL,
+  `tahun` int(11) NOT NULL,
+  `siswa_id` int(11) NOT NULL,
+  `keterangan` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kelas_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`absensi_id`, `tanggal`, `bulan`, `tahun`, `siswa_id`, `keterangan`, `kelas_id`) VALUES
+(4, 12, 7, 2020, 1, 'I', 2),
+(5, 12, 7, 2020, 2, 'S', 2),
+(6, 6, 7, 2020, 1, 'H', 2),
+(7, 6, 7, 2020, 2, 'A', 2);
 
 -- --------------------------------------------------------
 
@@ -63,7 +89,8 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`guru_id`, `nama`, `email`, `password`, `no_hp`, `alamat`, `kelas_id`) VALUES
-(1, 'Suganda', 'suganda@gmail.com', 'suganda123', '+6282288327135', 'suganda123', 2);
+(1, 'Suganda', 'suganda@gmail.com', 'suganda123', '+6282288327135', 'suganda123', 2),
+(2, 'Taufik Hidayat', 'taufik.y2t@gmail.com', '123', '082284499305', 'Dumai', 4);
 
 -- --------------------------------------------------------
 
@@ -110,13 +137,13 @@ CREATE TABLE `mapel` (
 --
 
 INSERT INTO `mapel` (`mapel_id`, `mapel_nama`) VALUES
+(0, '- Istirahat -'),
 (1, 'Pendidikan Jasmani'),
 (2, 'Bahasa Indonesia'),
 (3, 'Matematika'),
 (4, 'IPA'),
 (5, 'IPS'),
-(6, 'Pendidikan Agama'),
-(7, '- Istirahat -');
+(6, 'Pendidikan Agama');
 
 -- --------------------------------------------------------
 
@@ -139,15 +166,15 @@ CREATE TABLE `mapel_kelas` (
 INSERT INTO `mapel_kelas` (`mapel_kelas_id`, `mapel_id`, `jam`, `hari`, `kelas_id`) VALUES
 (1, 2, '08:00 - 09:30', 'Senin', 2),
 (2, 4, '10:30 - 12:00', 'Senin', 2),
-(3, 7, '12:00 - 13:00', 'Senin', 2),
+(3, 0, '12:00 - 13:00', 'Senin', 2),
 (4, 3, '13:00 - 14:00', 'Senin', 2),
 (5, 1, '08:00 - 09:30', 'Selasa', 2),
 (6, 4, '10:30 - 12:00', 'Selasa', 2),
-(7, 7, '12:00 - 13:00', 'Selasa', 2),
+(7, 0, '12:00 - 13:00', 'Selasa', 2),
 (8, 6, '13:00 - 14:00', 'Selasa', 2),
 (9, 3, '08:00 - 09:30', 'Rabu', 2),
 (10, 6, '10:30 - 12:00', 'Rabu', 2),
-(11, 7, '12:00 - 13:00', 'Rabu', 2),
+(11, 0, '12:00 - 13:00', 'Rabu', 2),
 (12, 5, '13:00 - 14:00', 'Rabu', 2);
 
 -- --------------------------------------------------------
@@ -163,6 +190,15 @@ CREATE TABLE `nilai` (
   `nilai` int(11) NOT NULL,
   `masukan` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nilai`
+--
+
+INSERT INTO `nilai` (`nilai_id`, `mapel_id`, `siswa_id`, `nilai`, `masukan`) VALUES
+(1, 2, 2, 70, 'Lumayan lah'),
+(4, 2, 1, 65, 'Jangan bahasa jawa juga lagi kalau di kelas'),
+(6, 3, 1, 50, 'Mtk dy kurang paham');
 
 -- --------------------------------------------------------
 
@@ -209,7 +245,9 @@ CREATE TABLE `pengumuman` (
 INSERT INTO `pengumuman` (`pengumuman_id`, `judul`, `deskripsi`, `tanggal`, `waktu`, `kelas_id`) VALUES
 (16, 'Pembagian Raport Siswa', 'Pembagian raport dimulai tangal 10-07-2020 trims.', '2020-07-10', '14:11:08', 2),
 (18, 'Test lagi', 'Isi test ya', '2020-07-10', '19:39:05', 2),
-(19, 'Oi', 'Haa?', '2020-07-10', '22:23:09', 2);
+(19, 'Oiiii ', 'Haaaweofdsf', '2020-07-10', '22:23:09', 2),
+(20, 'bfsado', 'dsfjijfd', '2020-07-10', '22:34:22', 2),
+(21, 'Ini pengumuman yang masuk ke kelas 2A', 'Sesuai dengan gurunya', '2020-07-10', '22:35:45', 4);
 
 -- --------------------------------------------------------
 
@@ -235,6 +273,12 @@ INSERT INTO `siswa` (`siswa_id`, `nama`, `kelas_id`, `orangtua_id`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD PRIMARY KEY (`absensi_id`);
 
 --
 -- Indexes for table `admin`
@@ -295,6 +339,12 @@ ALTER TABLE `siswa`
 --
 
 --
+-- AUTO_INCREMENT for table `absensi`
+--
+ALTER TABLE `absensi`
+  MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
@@ -304,7 +354,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kelas`
@@ -328,7 +378,7 @@ ALTER TABLE `mapel_kelas`
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `nilai_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `nilai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `orangtua`
@@ -340,7 +390,7 @@ ALTER TABLE `orangtua`
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `siswa`
