@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2020 at 04:16 PM
+-- Generation Time: Jul 12, 2020 at 05:53 PM
 -- Server version: 8.0.13
 -- PHP Version: 7.3.11
 
@@ -252,6 +252,30 @@ INSERT INTO `pengumuman` (`pengumuman_id`, `judul`, `deskripsi`, `tanggal`, `wak
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `percakapan`
+--
+
+CREATE TABLE `percakapan` (
+  `percakapan_id` int(11) NOT NULL,
+  `tanggal` varchar(50) NOT NULL,
+  `waktu` varchar(15) NOT NULL,
+  `pesan` text NOT NULL,
+  `dari_user_id` int(11) NOT NULL,
+  `dari_jenis_user` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `ke_user_id` int(11) NOT NULL,
+  `ke_jenis_user` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `percakapan`
+--
+
+INSERT INTO `percakapan` (`percakapan_id`, `tanggal`, `waktu`, `pesan`, `dari_user_id`, `dari_jenis_user`, `ke_user_id`, `ke_jenis_user`) VALUES
+(1, '2020-07-13', '00:50:46', 'Assalamu\'alaikum pak.. Begini...', 1, 'G', 2, 'O');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `siswa`
 --
 
@@ -329,6 +353,12 @@ ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`pengumuman_id`);
 
 --
+-- Indexes for table `percakapan`
+--
+ALTER TABLE `percakapan`
+  ADD PRIMARY KEY (`percakapan_id`);
+
+--
 -- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
@@ -393,10 +423,16 @@ ALTER TABLE `pengumuman`
   MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `percakapan`
+--
+ALTER TABLE `percakapan`
+  MODIFY `percakapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
