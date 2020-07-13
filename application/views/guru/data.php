@@ -93,7 +93,7 @@
                             </div>
                             <div class="form-group">
                               <label>Alamat</label>
-                              <textarea type="text" class="form-control" placeholder="Alamat" name="alamat"><?php echo $guru->password ?></textarea>
+                              <textarea type="text" class="form-control" placeholder="Alamat" name="alamat"><?php echo $guru->alamat ?></textarea>
                             </div>
                             <div class="form-group">
                               <label>Kelas</label>
