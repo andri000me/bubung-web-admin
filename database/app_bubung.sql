@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2020 at 09:21 AM
+-- Generation Time: Jul 13, 2020 at 04:51 PM
 -- Server version: 8.0.13
 -- PHP Version: 7.3.11
 
@@ -89,7 +89,7 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`guru_id`, `nama`, `email`, `password`, `no_hp`, `alamat`, `kelas_id`) VALUES
-(1, 'Suganda', 'suganda@gmail.com', 'suganda123', '+6282288327135', 'suganda123', 2),
+(1, 'Suganda', 'suganda@gmail.com', 'suganda123', '+6282288327135', 'Bengkalis', 2),
 (2, 'Taufik Hidayat', 'taufik.y2t@gmail.com', '123', '082284499305', 'Dumai', 4);
 
 -- --------------------------------------------------------
@@ -273,8 +273,9 @@ CREATE TABLE `percakapan` (
 --
 
 INSERT INTO `percakapan` (`percakapan_id`, `tanggal`, `waktu`, `pesan`, `dari_user_id`, `dari_jenis_user`, `ke_user_id`, `ke_jenis_user`, `nama_penerima`, `nama_pengirim`) VALUES
-(1, '2020-07-13', '15:00:53', 'Sama sama pak.', 1, 'G', 2, 'O', 'Budiman', 'Suganda'),
-(2, '2020-07-13', '15:01:43', 'Pak heri..\n', 1, 'G', 1, 'O', 'Heri Maulana', 'Suganda');
+(1, '2020-07-13', '15:00:53', 'Sukses terus pak.. Amin..', 1, 'G', 2, 'O', 'Budiman', 'Suganda'),
+(2, '2020-07-13', '15:01:43', 'Pak heri..\n', 1, 'G', 1, 'O', 'Heri Maulana', 'Suganda'),
+(3, '2020-07-13', '20:27:46', 'Walaikum salam, iya ada apa bapak?', 2, 'O', 1, 'G', 'Suganda', 'Budiman');
 
 -- --------------------------------------------------------
 
@@ -301,7 +302,10 @@ INSERT INTO `percakapan_tanggapan` (`percakapan_tanggapan_id`, `percakapan_id`, 
 (2, 2, '2020-07-13', '15:01:43', 'Assalamu\'alaikum pak heri', 1, 'G'),
 (3, 1, '2020-07-13', '15:24:42', 'Terimakasih bnyak pak suganda _/\\_', 2, 'O'),
 (4, 1, '2020-07-13', '16:14:53', 'Sama sama pak.', 1, 'G'),
-(5, 2, '2020-07-13', '16:19:01', 'Pak heri..\n', 1, 'G');
+(5, 2, '2020-07-13', '16:19:01', 'Pak heri..\n', 1, 'G'),
+(6, 1, '2020-07-13', '19:43:10', 'Sukses terus pak.. Amin..', 2, 'O'),
+(7, 3, '2020-07-13', '20:27:46', 'Assalamualaikum pak suganda', 2, 'O'),
+(8, 3, '2020-07-13', '21:00:13', 'Walaikum salam, iya ada apa bapak?', 1, 'G');
 
 -- --------------------------------------------------------
 
@@ -462,13 +466,13 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `percakapan`
 --
 ALTER TABLE `percakapan`
-  MODIFY `percakapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `percakapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `percakapan_tanggapan`
 --
 ALTER TABLE `percakapan_tanggapan`
-  MODIFY `percakapan_tanggapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `percakapan_tanggapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `siswa`
