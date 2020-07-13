@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2020 at 04:04 AM
+-- Generation Time: Jul 13, 2020 at 09:21 AM
 -- Server version: 8.0.13
 -- PHP Version: 7.3.11
 
@@ -265,17 +265,43 @@ CREATE TABLE `percakapan` (
   `ke_user_id` int(11) NOT NULL,
   `ke_jenis_user` varchar(1) NOT NULL,
   `nama_penerima` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `nama_pengirim` varchar(50) NOT NULL,
-  `text_user_terakhir` text NOT NULL
+  `nama_pengirim` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `percakapan`
 --
 
-INSERT INTO `percakapan` (`percakapan_id`, `tanggal`, `waktu`, `pesan`, `dari_user_id`, `dari_jenis_user`, `ke_user_id`, `ke_jenis_user`, `nama_penerima`, `nama_pengirim`, `text_user_terakhir`) VALUES
-(7, '2020-07-13', '11:02:48', 'Assalamu\'alaikum pak..', 1, 'G', 1, 'O', 'Heri Maulana [Ortu: Pramudia]', 'Suganda', 'Assalamu\'alaikum pak..'),
-(8, '2020-07-13', '11:03:30', 'Selamat atas keberhasilan anak bapak..', 1, 'G', 2, 'O', 'Budiman [Ortu: Sutrisno]', 'Suganda', 'Selamat atas keberhasilan anak bapak..');
+INSERT INTO `percakapan` (`percakapan_id`, `tanggal`, `waktu`, `pesan`, `dari_user_id`, `dari_jenis_user`, `ke_user_id`, `ke_jenis_user`, `nama_penerima`, `nama_pengirim`) VALUES
+(1, '2020-07-13', '15:00:53', 'Sama sama pak.', 1, 'G', 2, 'O', 'Budiman', 'Suganda'),
+(2, '2020-07-13', '15:01:43', 'Pak heri..\n', 1, 'G', 1, 'O', 'Heri Maulana', 'Suganda');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `percakapan_tanggapan`
+--
+
+CREATE TABLE `percakapan_tanggapan` (
+  `percakapan_tanggapan_id` int(11) NOT NULL,
+  `percakapan_id` int(11) NOT NULL,
+  `tanggal` varchar(50) NOT NULL,
+  `waktu` varchar(15) NOT NULL,
+  `pesan` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `jenis_user` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `percakapan_tanggapan`
+--
+
+INSERT INTO `percakapan_tanggapan` (`percakapan_tanggapan_id`, `percakapan_id`, `tanggal`, `waktu`, `pesan`, `user_id`, `jenis_user`) VALUES
+(1, 1, '2020-07-13', '15:00:53', 'Selamat atas keberhasilan anak bapak..', 1, 'G'),
+(2, 2, '2020-07-13', '15:01:43', 'Assalamu\'alaikum pak heri', 1, 'G'),
+(3, 1, '2020-07-13', '15:24:42', 'Terimakasih bnyak pak suganda _/\\_', 2, 'O'),
+(4, 1, '2020-07-13', '16:14:53', 'Sama sama pak.', 1, 'G'),
+(5, 2, '2020-07-13', '16:19:01', 'Pak heri..\n', 1, 'G');
 
 -- --------------------------------------------------------
 
@@ -363,6 +389,12 @@ ALTER TABLE `percakapan`
   ADD PRIMARY KEY (`percakapan_id`);
 
 --
+-- Indexes for table `percakapan_tanggapan`
+--
+ALTER TABLE `percakapan_tanggapan`
+  ADD PRIMARY KEY (`percakapan_tanggapan_id`);
+
+--
 -- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
@@ -430,13 +462,19 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `percakapan`
 --
 ALTER TABLE `percakapan`
-  MODIFY `percakapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `percakapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `percakapan_tanggapan`
+--
+ALTER TABLE `percakapan_tanggapan`
+  MODIFY `percakapan_tanggapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
