@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2020 at 05:53 PM
+-- Generation Time: Jul 13, 2020 at 04:04 AM
 -- Server version: 8.0.13
 -- PHP Version: 7.3.11
 
@@ -261,17 +261,21 @@ CREATE TABLE `percakapan` (
   `waktu` varchar(15) NOT NULL,
   `pesan` text NOT NULL,
   `dari_user_id` int(11) NOT NULL,
-  `dari_jenis_user` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `dari_jenis_user` varchar(1) NOT NULL,
   `ke_user_id` int(11) NOT NULL,
-  `ke_jenis_user` varchar(1) NOT NULL
+  `ke_jenis_user` varchar(1) NOT NULL,
+  `nama_penerima` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `nama_pengirim` varchar(50) NOT NULL,
+  `text_user_terakhir` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `percakapan`
 --
 
-INSERT INTO `percakapan` (`percakapan_id`, `tanggal`, `waktu`, `pesan`, `dari_user_id`, `dari_jenis_user`, `ke_user_id`, `ke_jenis_user`) VALUES
-(1, '2020-07-13', '00:50:46', 'Assalamu\'alaikum pak.. Begini...', 1, 'G', 2, 'O');
+INSERT INTO `percakapan` (`percakapan_id`, `tanggal`, `waktu`, `pesan`, `dari_user_id`, `dari_jenis_user`, `ke_user_id`, `ke_jenis_user`, `nama_penerima`, `nama_pengirim`, `text_user_terakhir`) VALUES
+(7, '2020-07-13', '11:02:48', 'Assalamu\'alaikum pak..', 1, 'G', 1, 'O', 'Heri Maulana [Ortu: Pramudia]', 'Suganda', 'Assalamu\'alaikum pak..'),
+(8, '2020-07-13', '11:03:30', 'Selamat atas keberhasilan anak bapak..', 1, 'G', 2, 'O', 'Budiman [Ortu: Sutrisno]', 'Suganda', 'Selamat atas keberhasilan anak bapak..');
 
 -- --------------------------------------------------------
 
@@ -426,7 +430,7 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `percakapan`
 --
 ALTER TABLE `percakapan`
-  MODIFY `percakapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `percakapan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `siswa`
